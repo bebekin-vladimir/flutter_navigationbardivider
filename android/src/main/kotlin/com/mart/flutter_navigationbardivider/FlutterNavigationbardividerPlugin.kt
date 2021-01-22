@@ -24,11 +24,11 @@ class FlutterNavigationBarDividerPlugin private constructor(private val activity
 
     when (call.method) {
       "getNavigationBarDividerColor" -> {
-        var color = 0
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-          color = activity.window.navigationBarDividerColor
+          result.success(activity.window.navigationBarDividerColor)
+        } else {
+          result.success(null)
         }
-        result.success(color)
       }
       "setNavigationBarDividerColor" -> {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {

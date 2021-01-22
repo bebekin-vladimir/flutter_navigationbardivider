@@ -10,7 +10,7 @@ class FlutterNavigationBarDivider {
   /// Android only
   ///
   /// Get the navigation bar divider's color for Android version 9.0 and above.
-  static Future<Color> get navigationBarDividerColor async {
+  static Future<Color?> get navigationBarDividerColor async {
     final value = await _channel.invokeMethod('getNavigationBarDividerColor');
     return value != null ? Color(value) : null;
   }
